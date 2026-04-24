@@ -27,7 +27,7 @@ public class PreviewBadukAlOnBoard : MonoBehaviour
         _isBlack = true;
         _isActive = true;
         _badukpanLayer = 1 << LayerMask.NameToLayer("Board");
-        _distanceMax = _distance + 2f;
+        _distanceMax = _distance + 20f;
         
         _blackShadow = Instantiate(_blackShadow);
         _whiteShadow = Instantiate(_whiteShadow);
@@ -50,6 +50,7 @@ public class PreviewBadukAlOnBoard : MonoBehaviour
         if (Physics.Raycast(ray, out hit, _distanceMax, _badukpanLayer))
         {
             screenPos = hit.point;
+            screenPos.y = _badukpan.transform.position.y + 0.1f;
             _isActive = true;
             ShowBadukalShadow(screenPos);
         }
@@ -70,6 +71,9 @@ public class PreviewBadukAlOnBoard : MonoBehaviour
             nowShowStone = _whiteShadow;
         
         nowShowStone.SetActive(_isActive);
-        nowShowStone.transform.position = screenPos;
+        
+        Vector3 tempPos = _badukpan.CheckBadukpanPosition(screenPos);
+        nowShowStone.transform.position = tempPos;
     }
+    
 }

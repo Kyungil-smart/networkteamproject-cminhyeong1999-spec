@@ -240,10 +240,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 30
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 11
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -267,13 +267,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154630120}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10, y: 20, z: 10}
+  m_LocalRotation: {x: 0.5600164, y: -0, z: -0, w: 0.8284816}
+  m_LocalPosition: {x: 10, y: 16.53, z: 1.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 68.114, y: 0, z: 0}
 --- !u!114 &154630124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f88fc45e9f1bf49ac5ad280c757fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickToBoard
-  _badukPan: {fileID: 2057818513}
+  _badukpan: {fileID: 2057818513}
   _Black: {fileID: 5149715881821673283, guid: cbd89c038c46e534d8f58a23402a1e14, type: 3}
   _White: {fileID: 5149715881821673283, guid: bc04053abf175c04dbf82f7c476e3933, type: 3}
   _distance: 20
@@ -518,37 +518,6 @@ MonoBehaviour:
   _blackShadow: {fileID: 5149715881821673283, guid: 6bf7a075a1bb4144da246513ffb2dcc1, type: 3}
   _whiteShadow: {fileID: 5149715881821673283, guid: 62ef81401d9fc6e41a4c04f6445b0bf1, type: 3}
   _distance: 20
---- !u!1 &1852379634
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1852379635}
-  m_Layer: 0
-  m_Name: Center
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1852379635
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852379634}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2003588844
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,5 +764,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 154630123}
   - {fileID: 2003588846}
-  - {fileID: 1852379635}
   - {fileID: 599883134}
