@@ -16,7 +16,6 @@ public class Badukpan : MonoBehaviour
 
     private const int _BadukpanSize = 19;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         _badukpanPositionArray = new Vector3[_BadukpanSize, _BadukpanSize];

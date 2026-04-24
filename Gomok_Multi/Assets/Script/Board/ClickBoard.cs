@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class ClickBoard : MonoBehaviour
 {
     [Header("바둑판")]
-    [SerializeField] private GameObject _badukpan;
+    [SerializeField] private Badukpan _badukpan;
     
     [Header("바둑알")]
     [SerializeField] private GameObject _Black;
@@ -73,7 +73,8 @@ public class ClickBoard : MonoBehaviour
             nowSetStone = _White;
         }
         
+        Vector3 tempPos = _badukpan.CheckBadukpanPosition(screenPos);
         // Todo: 나중에 오브젝트 풀링으로 로직 재구현 예정
-        Instantiate(nowSetStone, screenPos, Quaternion.identity);
+        Instantiate(nowSetStone, tempPos, Quaternion.identity);
     }
 }
