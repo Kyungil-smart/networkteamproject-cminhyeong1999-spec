@@ -9,11 +9,12 @@ public class Badukpan : MonoBehaviour
     [Header("바둑판 맨 오른쪽 위 위치")]
     [SerializeField] private GameObject _badukPanTopRightPoint;
     
-    [Header("바둑알")]
+    [Header("바둑알/테스트용")]
     [SerializeField] private GameObject _Black;
     [SerializeField] private GameObject _White;
     
     public Vector3[,] _badukpanPositionArray { get; private set; }
+    public float BadukpanDistance { get; private set; }
 
     private const int _BadukpanSize = 19;
     
@@ -40,12 +41,16 @@ public class Badukpan : MonoBehaviour
                 _badukpanPositionArray[x, y] = new Vector3(xPos, 0, zPos);
             }
         }
+
+        CalculateAverageDistance();
     }
 
+    // Test ------------------------------
+    
     // Player Input에 임시로 Test 액션을 등록해둠
     void OnTest()
     {
-        PrintPosition();
+        CalculateAverageDistance();
     }
 
     // 각 포지션을 순회하며 큐브를 두는 메서드
@@ -57,4 +62,23 @@ public class Badukpan : MonoBehaviour
             Instantiate(_Black, item, Quaternion.identity);
         }
     }
+    
+    private void CalculateAverageDistance()
+    {
+        // 19x19 바둑판 기준, 인접한 두 칸의 거리 차이를 계산
+        // [0, 0]과 [1, 0]의 차이는 X 간격
+        float distX = Vector3.Distance(_badukpanPositionArray[0, 0], _badukpanPositionArray[1, 0]);
+    
+        // [0, 0]과 [0, 1]의 차이는 Y(또는 Z) 간격
+        float distY = Vector3.Distance(_badukpanPositionArray[0, 0], _badukpanPositionArray[0, 1]);
+
+        float averageDist = (distX + distY) / 2f;
+
+        Debug.Log($"X축 간격: {distX}");
+        Debug.Log($"Y축 간격: {distY}");
+        Debug.Log($"평균 격자 거리: {averageDist}");
+        BadukpanDistance = averageDist;
+    }
+    
+    // Test ------------------------------
 }

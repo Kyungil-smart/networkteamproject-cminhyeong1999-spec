@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 8573413084533973333}
   - component: {fileID: 8786495716632686453}
   - component: {fileID: 843526828454336708}
-  m_Layer: 8
-  m_Name: Black
+  m_Layer: 7
+  m_Name: ShadowWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5489787366401581791
 Transform:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be93a5d3baf4ffd4eb0f1e2cc0d6708a, type: 2}
+  - {fileID: 2100000, guid: 8510281e977be944295ab65c8df80eb0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
