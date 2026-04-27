@@ -47,7 +47,7 @@ public class ClickBoard : MonoBehaviour
         }
     }
 
-    // 레이를 쐇을때의 오브젝트 레이어 마스크가 Board이면 true, 나머지는 false
+    // 레이를 쐇을때 맞은 오브젝트의 레이어 마스크가 Board이면 true, 나머지는 false
     private bool CheckBadukPan()
     {
         Ray ray = Camera.main.ScreenPointToRay(Pointer.current.position.ReadValue());
@@ -67,14 +67,27 @@ public class ClickBoard : MonoBehaviour
         if (_isFirst)
         {
             nowSetStone = _Black;
+            _badukpan.BadukalColor = StoneColor.Black;
         }
         else
         {
             nowSetStone = _White;
+            _badukpan.BadukalColor = StoneColor.White;
+        }
+
+        Vector3 tempPos = _badukpan.SetBadukpanPosition(screenPos, _badukpan.BadukalColor);
+
+        if (tempPos == _badukpan.CanNotPlacedStone)
+        {
+            // 알을 놓은 후에 흑백 전환이 있어 원래 자기 색을 유지하기 위해 흑백전환
+            // 그 후 다시 흑백 전환을 하여 흑에서 원래 놓은 자리에 놓으려고 할 경우 흑 유지, 백에서도 동일
+            _isFirst = !_isFirst;
+            return;
         }
         
-        Vector3 tempPos = _badukpan.CheckBadukpanPosition(screenPos);
         // Todo: 나중에 오브젝트 풀링으로 로직 재구현 예정
         Instantiate(nowSetStone, tempPos, Quaternion.identity);
+        
+        _badukpan.CheckWin(screenPos);
     }
 }

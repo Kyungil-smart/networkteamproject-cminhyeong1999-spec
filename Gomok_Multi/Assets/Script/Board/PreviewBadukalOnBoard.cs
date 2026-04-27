@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PreviewBadukAlOnBoard : MonoBehaviour
+public class PreviewBadukalOnBoard : MonoBehaviour
 {
     [Header("바둑판")]
     [SerializeField] private Badukpan _badukpan;
@@ -72,7 +72,7 @@ public class PreviewBadukAlOnBoard : MonoBehaviour
         
         nowShowStone.SetActive(_isActive);
         
-        Vector3 tempPos = _badukpan.CheckBadukpanPosition(screenPos);
+        Vector3 tempPos = _badukpan.CheckBadukpanPosition(screenPos,_badukpan.BadukalColor);
         nowShowStone.transform.position = tempPos;
     }
     
