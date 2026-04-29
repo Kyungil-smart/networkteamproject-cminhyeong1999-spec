@@ -1,16 +1,12 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class TurnManager : MonoBehaviour
+public class TurnManager : NetworkBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static TurnManager Instance { get; private set; }
+    
+    public bool SetBlackWhite()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return Random.value > 0.5;
     }
 }

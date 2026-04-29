@@ -49,13 +49,25 @@ public class CheckFiveStone
         _isPlaced[x, z] = value;
     }
     
+    /// <summary>
+    /// 승리 체크 메서드
+    /// </summary>
+    /// <param name="lastX">돌을 둔 격자의 x좌표</param>
+    /// <param name="lastZ">돌을 둔 격자의 z좌표</param>
+    /// <param name="stoneColor">현재 플레이어의 돌 색깔</param>
+    /// <returns>승리 조건에 맞으면 true, 그외는 false</returns>
     public bool CheckWin(int lastX, int lastZ, StoneColor stoneColor)
     {
         return FreeStyleRule(lastX, lastZ, stoneColor);
     }
 
-    //  자유룰
-    //  6목 이상의 장목 허용, 3,3 / 4,4도 허용
+    /// <summary>
+    /// 자유룰 / 3,3 이나 4,4 등등의 금지 구역이나 금지룰 없음
+    /// </summary>
+    /// <param name="lastX">돌을 둔 격자의 x좌표</param>
+    /// <param name="lastZ">돌을 둔 격자의 z좌표</param>
+    /// <param name="stoneColor">현재 플레이어의 돌 색깔</param>
+    /// <returns>승리 조건에 맞으면 true, 그외는 false</returns>
     private bool FreeStyleRule(int lastX, int lastZ, StoneColor stoneColor)
     {
         HashSet<(int x, int z)> nowCheckStones;
@@ -85,6 +97,15 @@ public class CheckFiveStone
         return false;
     }
 
+    /// <summary>
+    /// 특정 방향에 같은 색 돌이 얼마나 놓여있는지를 체크하는 메서드
+    /// </summary>
+    /// <param name="startX">탐색을 시작할 x좌표</param>
+    /// <param name="startZ">탐색을 시작할 z좌표</param>
+    /// <param name="dirX">x좌표 방향</param>
+    /// <param name="dirZ">z좌표 방향</param>
+    /// <param name="nowCheckStones">흑돌이나 백돌이 어느좌표에 착수하였는지가 저장된 HashSet</param>
+    /// <returns></returns>
     private int CheckStones(int startX, int startZ, int dirX, int dirZ, HashSet<(int x, int z)> nowCheckStones)
     {
         int count = 0;

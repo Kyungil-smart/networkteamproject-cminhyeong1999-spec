@@ -1004,15 +1004,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Test",
-                    "type": "Button",
-                    "id": "e6f45119-f76e-475e-bdef-05b19cbf449c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1029,12 +1020,12 @@
                 },
                 {
                     "name": "",
-                    "id": "8b0e0950-3cd1-408b-9f8b-f053828e1f6f",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
+                    "id": "5d1c2a99-f2d9-4d9c-a6a1-fce5956546b7",
+                    "path": "<Touchscreen>/touch*/Press",
+                    "interactions": "Press",
                     "processors": "",
-                    "groups": "",
-                    "action": "Test",
+                    "groups": ";Touch",
+                    "action": "ClickBoard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
